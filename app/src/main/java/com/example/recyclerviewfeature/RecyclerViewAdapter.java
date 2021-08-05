@@ -10,16 +10,18 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private ArrayList<NameIconOnItem> mData;
+    private List<Integer> mIcon;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    RecyclerViewAdapter(Context context, List<String> data) {
+    RecyclerViewAdapter(Context context, ArrayList<NameIconOnItem> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -34,8 +36,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String card = mData.get(position);
-        holder.myTextView.setText(card);
+        NameIconOnItem cardItem = mData.get(position);
+        holder.nameTextView.setText(cardItem.getDataName());
+        holder.iconImageView.setImageResource(cardItem.getDataIcon());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,16 +46,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 dialog.setContentView(R.layout.activity_main);
                 ImageView imageView = dialog.findViewById(R.id.image_dialog);
                 dialog.show();
-                if (card == "Eternatus") {
+                if (cardItem.getDataName() == "Eternatus") {
                     imageView.setImageResource(R.drawable.eternatus_yc);
-                } else if (card == "Ballom Master of the Death") {
+                } else if (cardItem.getDataName() == "Ballom Master of the Death") {
                     imageView.setImageResource(R.drawable.ballom_master_of_death_yc);
-                } else if (card == "Bynor the Legend of Leviathan") {
+                } else if (cardItem.getDataName() == "Bynor the Legend of Leviathan") {
                     imageView.setImageResource((R.drawable.bynor_the_legend_of_leviathan_yc));
-                } else if (card == "Eternatus Eternamax") {
+                } else if (cardItem.getDataName() == "Eternatus Eternamax") {
                     imageView.setImageResource(R.drawable.eternatus_eternamax_yc);
-                } else if (card == "Luster Dragon #3") {
+                } else if (cardItem.getDataName() == "Luster Dragon #3") {
                     imageView.setImageResource(R.drawable.luster_dragon__3_yc);
+                } else if (cardItem.getDataName() == "Full Ammored Stardust Dragon") {
+                    imageView.setImageResource(R.drawable.full_armored_stardust_dragon_yc);
+                } else if (cardItem.getDataName() == "Neo Blue Eyes Shining Dragon") {
+                    imageView.setImageResource(R.drawable.neo_blue_eyes_shining_dragon_yc);
+                } else if (cardItem.getDataName() == "Relinquished Fusion") {
+                    imageView.setImageResource(R.drawable.relinquished_fusion_yc);
+                } else if (cardItem.getDataName() == "Shooting Starburst Dragon") {
+                    imageView.setImageResource(R.drawable.shooting_starburst__dragon_yc);
+                } else if (cardItem.getDataName() == "Stardust Divine Dragon") {
+                    imageView.setImageResource(R.drawable.stardust_divine_dragon_yc);
+                } else if (cardItem.getDataName() == "Urgent Mask Chage") {
+                    imageView.setImageResource(R.drawable.urgent_mask_change_yc);
                 }
             }
         });
@@ -67,11 +82,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView nameTextView;
+        ImageView iconImageView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvYugiohCards);
+            nameTextView = itemView.findViewById(R.id.nameYugiohCards);
+            iconImageView = itemView.findViewById(R.id.iconYugiohCards);
             itemView.setOnClickListener(this);
         }
 
@@ -82,7 +99,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    NameIconOnItem getItem(int id) {
         return mData.get(id);
     }
 

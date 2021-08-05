@@ -6,7 +6,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvYugiohCards"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:padding="10dp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
