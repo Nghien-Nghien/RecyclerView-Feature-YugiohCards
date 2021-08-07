@@ -37,37 +37,55 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         NameIconOnItem cardItem = mData.get(position);
-        holder.nameTextView.setText(cardItem.getDataName());
+        String cardName = cardItem.getDataName();
+        holder.nameTextView.setText(cardName);
         holder.iconImageView.setImageResource(cardItem.getDataIcon());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(mInflater.getContext());
-                dialog.setContentView(R.layout.activity_main);
+                dialog.setContentView(R.layout.activity_yugicard);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 ImageView imageView = dialog.findViewById(R.id.image_dialog);
                 dialog.show();
-                if (cardItem.getDataName() == "Eternatus") {
-                    imageView.setImageResource(R.drawable.eternatus_yc);
-                } else if (cardItem.getDataName() == "Ballom Master of the Death") {
-                    imageView.setImageResource(R.drawable.ballom_master_of_death_yc);
-                } else if (cardItem.getDataName() == "Bynor the Legend of Leviathan") {
-                    imageView.setImageResource((R.drawable.bynor_the_legend_of_leviathan_yc));
-                } else if (cardItem.getDataName() == "Eternatus Eternamax") {
-                    imageView.setImageResource(R.drawable.eternatus_eternamax_yc);
-                } else if (cardItem.getDataName() == "Luster Dragon #3") {
-                    imageView.setImageResource(R.drawable.luster_dragon__3_yc);
-                } else if (cardItem.getDataName() == "Full Ammored Stardust Dragon") {
-                    imageView.setImageResource(R.drawable.full_armored_stardust_dragon_yc);
-                } else if (cardItem.getDataName() == "Neo Blue Eyes Shining Dragon") {
-                    imageView.setImageResource(R.drawable.neo_blue_eyes_shining_dragon_yc);
-                } else if (cardItem.getDataName() == "Relinquished Fusion") {
-                    imageView.setImageResource(R.drawable.relinquished_fusion_yc);
-                } else if (cardItem.getDataName() == "Shooting Starburst Dragon") {
-                    imageView.setImageResource(R.drawable.shooting_starburst__dragon_yc);
-                } else if (cardItem.getDataName() == "Stardust Divine Dragon") {
-                    imageView.setImageResource(R.drawable.stardust_divine_dragon_yc);
-                } else if (cardItem.getDataName() == "Urgent Mask Chage") {
-                    imageView.setImageResource(R.drawable.urgent_mask_change_yc);
+                if (cardName == "Battlin Boxer Shooting Star") {
+                    imageView.setImageResource(R.drawable.battlin_boxer_shooting_star);
+                } else if (cardName == "Bynor the Legend of Leviathan") {
+                    imageView.setImageResource(R.drawable.bynor_the_legend_of_leviathan);
+                } else if (cardName == "Chimeratech Terminal Dragon") {
+                    imageView.setImageResource((R.drawable.chimeratech_terminal_dragon));
+                } else if (cardName == "Cyberdark Dragon Blade Variant") {
+                    imageView.setImageResource(R.drawable.cyberdark_dragon_blade_variant);
+                } else if (cardName == "Decode Talker") {
+                    imageView.setImageResource(R.drawable.decode_talker);
+                } else if (cardName == "Eternatus") {
+                    imageView.setImageResource(R.drawable.eternatus);
+                } else if (cardName == "Full Ammored Stardust Dragon") {
+                    imageView.setImageResource(R.drawable.full_armored_stardust_dragon);
+                } else if (cardName == "Gaia the Chaos Knight") {
+                    imageView.setImageResource(R.drawable.gaia_the_chaos_knight);
+                } else if (cardName == "Giltia the D.KNight Soul Spear") {
+                    imageView.setImageResource(R.drawable.giltia_the_d_knight_soul_spear);
+                } else if (cardName == "Golden Eyes Idol") {
+                    imageView.setImageResource(R.drawable.golden_eyes_idol);
+                } else if (cardName == "Legendary Dark Magician") {
+                    imageView.setImageResource(R.drawable.legendary_dark_magician);
+                } else if (cardName == "Luster Dragon #3") {
+                    imageView.setImageResource(R.drawable.luster_dragon__3);
+                } else if (cardName == "Mega Lucario") {
+                    imageView.setImageResource(R.drawable.mega_lucario);
+                } else if (cardName == "Neo Blue Eyes Shining Dragon") {
+                    imageView.setImageResource(R.drawable.neo_blue_eyes_shining_dragon);
+                } else if (cardName == "Number 39 Utopic Knight") {
+                    imageView.setImageResource(R.drawable.number_39_utopic_knight);
+                } else if (cardName == "Relinquished Fusion") {
+                    imageView.setImageResource(R.drawable.relinquished_fusion);
+                } else if (cardName == "Shooting Starburst Dragon") {
+                    imageView.setImageResource(R.drawable.shooting_starburst_dragon);
+                } else if (cardName == "Stardust Divine Dragon") {
+                    imageView.setImageResource(R.drawable.stardust_divine_dragon);
+                } else if (cardName == "Urgent Mask Chage") {
+                    imageView.setImageResource(R.drawable.urgent_mask_change);
                 }
             }
         });

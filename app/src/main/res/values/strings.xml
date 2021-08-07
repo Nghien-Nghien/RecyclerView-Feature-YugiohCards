@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Yugioh Cards</string>
+    <string name="app_name">YugiOH!</string>
+    <string name="activity_yugi">Yugi Cards</string>
+    <string name="activity_joey">Joey Cards</string>
 </resources>
